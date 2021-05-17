@@ -1,0 +1,34 @@
+[
+  {
+    "name": "springboot-app",
+    "image": "${repository}:${tag}",
+    "repositoryCredentials": {
+      "credentialsParameter": "<secret-arn>"
+    },
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 8080,
+        "hostPort": 8080,
+        "protocol": "tcp"
+      }
+    ],
+    "cpu": 1,
+    "environment": [
+      {
+        "name": "PORT",
+        "value": "8080"
+      }
+    ],
+    "ulimits": [
+      {
+        "name": "nofile",
+        "softLimit": 65536,
+        "hardLimit": 65536
+      }
+    ],
+    "mountPoints": [],
+    "memory": 2048,
+    "volumesFrom": []
+  }
+]
